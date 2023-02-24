@@ -11,6 +11,6 @@ class ClockConfig {
 
     @Bean
     Clock clock() {
-        return Clock.system(ZoneId.of("Asia/Seoul"));
+        return Clock.system(ZoneId.of("Europe/Budapest"));
     }
 }
