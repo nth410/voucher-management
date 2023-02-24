@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "ea34fc81-bafd-43e4-95bb-b4f964e57f30",
+		"name": "Voucher Management Redemption API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15993210"
+	},
+	"item": [
+		{
+			"name": "create single redemption voucher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redemptionType\": \"SINGLE_REDEMPTION\",\r\n  \"discountAmount\": \"10\",\r\n  \"validFrom\": 1677238315407,\r\n  \"expiredAt\": 1679657540000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/vouchers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vouchers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create multiple redemption voucher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redemptionType\": \"MULTIPLE_REDEMPTION\",\r\n  \"discountAmount\": \"12\",\r\n  \"validFrom\": 1677238315407,\r\n  \"expiredAt\": 1679657540000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/vouchers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vouchers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create x times redemption voucher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redemptionType\": \"X_TIMES_REDEMPTION\",\r\n  \"discountAmount\": \"10\",\r\n  \"validFrom\": 1677238315407,\r\n  \"expiredAt\": 1679657540000,\r\n  \"limitRedemption\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/vouchers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vouchers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create bulk",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"redemptionType\": \"SINGLE_REDEMPTION\",\r\n        \"discountAmount\": \"1\",\r\n        \"validFrom\": 1677238315407,\r\n        \"expiredAt\": 1679657540000\r\n    },\r\n    {\r\n        \"redemptionType\": \"SINGLE_REDEMPTION\",\r\n        \"discountAmount\": \"2\",\r\n        \"validFrom\": 1677238315407,\r\n        \"expiredAt\": 1679657540000\r\n    },\r\n    {\r\n        \"redemptionType\": \"X_TIMES_REDEMPTION\",\r\n        \"discountAmount\": \"3\",\r\n        \"validFrom\": 1677238315407,\r\n        \"expiredAt\": 1679657540000,\r\n        \"limitRedemption\": 100\r\n    },\r\n    {\r\n        \"redemptionType\": \"MULTIPLE_REDEMPTION\",\r\n        \"discountAmount\": \"4\",\r\n        \"validFrom\": 1677238315407,\r\n        \"expiredAt\": 1679657540000\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/vouchers?bulk",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vouchers"
+					],
+					"query": [
+						{
+							"key": "bulk",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "redeem",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/vouchers/OVUXK5GXPN/redeem",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vouchers",
+						"OVUXK5GXPN",
+						"redeem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get vouchers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redemptionType\": \"SINGLE_REDEMPTION\",\r\n  \"discountAmount\": \"10\",\r\n  \"validFrom\": 1677238315407,\r\n  \"expiredAt\": 1679657540000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/vouchers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vouchers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get voucher by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redemptionType\": \"SINGLE_REDEMPTION\",\r\n  \"discountAmount\": \"10\",\r\n  \"validFrom\": 1677238315407,\r\n  \"expiredAt\": 1679657540000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/vouchers/YKXUNDM0KL",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vouchers",
+						"YKXUNDM0KL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get redemptions by voucher id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redemptionType\": \"SINGLE_REDEMPTION\",\r\n  \"discountAmount\": \"10\",\r\n  \"validFrom\": 1677238315407,\r\n  \"expiredAt\": 1679657540000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/vouchers/OVUXK5GXPN/redemptions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vouchers",
+						"OVUXK5GXPN",
+						"redemptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update voucher",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redemptionType\": \"SINGLE_REDEMPTION\",\r\n  \"discountAmount\": \"1\",\r\n  \"validFrom\": 1577238315407,\r\n  \"expiredAt\": 1677238315407\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/vouchers/YKXUNDM0KL",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vouchers",
+						"YKXUNDM0KL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete voucher",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/vouchers/YKXUNDM0KL",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vouchers",
+						"YKXUNDM0KL"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
