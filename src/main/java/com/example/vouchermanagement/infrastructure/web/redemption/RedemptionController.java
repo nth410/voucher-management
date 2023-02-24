@@ -24,12 +24,10 @@ class RedemptionController {
     List<RedemptionResponse> retrieveAll(
             @PathVariable("voucher_id") String voucherId
     ) {
-        final var redemptions = redemptionManagerService.retrieveByVoucherId(voucherId)
+        return redemptionManagerService.retrieveByVoucherId(voucherId)
                 .stream()
                 .map(RedemptionController::toResponse)
                 .toList();
-
-        return redemptions;
     }
 
     private static RedemptionResponse toResponse(final Redemption redemption) {

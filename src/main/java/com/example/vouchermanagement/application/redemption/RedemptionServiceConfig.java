@@ -27,7 +27,7 @@ class RedemptionServiceConfig {
                                                       final Clock clock) {
         return new RedemptionCommandServiceImpl(
                 redemptionStorage,
-                () -> idGenerator.nextId(),
+                idGenerator::nextId,
                 clock
         );
     }

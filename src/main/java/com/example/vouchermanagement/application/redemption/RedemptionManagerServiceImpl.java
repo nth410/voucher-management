@@ -8,12 +8,6 @@ public record RedemptionManagerServiceImpl(
         RedemptionRetrieveService redemptionRetrieveService,
         RedemptionCommandService redemptionCommandService
 ) implements RedemptionManagerService {
-
-    @Override
-    public Redemption save(RedemptionApplicationDto redemptionApplicationDto) {
-        return redemptionCommandService.save(redemptionApplicationDto);
-    }
-
     @Override
     public List<Redemption> retrieveByVoucherId(String voucherId) {
         return redemptionRetrieveService.retrieveByVoucherId(voucherId);

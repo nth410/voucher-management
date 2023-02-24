@@ -31,7 +31,7 @@ class VoucherServiceConfig {
         return new VoucherCommandServiceImpl(
                 voucherStorage,
                 voucherValidator,
-                () -> idGenerator.nextId(),
+                idGenerator::nextId,
                 clock
         );
     }

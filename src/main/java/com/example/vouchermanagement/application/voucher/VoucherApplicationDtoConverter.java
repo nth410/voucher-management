@@ -25,8 +25,7 @@ class VoucherApplicationDtoConverter {
         final var redemptionType = toRedemptionType(voucherApplicationDto.redemptionType());
 
         return switch (redemptionType) {
-            case SINGLE_REDEMPTION ->
-                    toSingleRedemptionVoucher(voucherId, voucherApplicationDto, createAt, isRedeemed);
+            case SINGLE_REDEMPTION -> toSingleRedemptionVoucher(voucherId, voucherApplicationDto, createAt, isRedeemed);
             case MULTIPLE_REDEMPTION ->
                     toMultipleRedemptionVoucher(voucherId, voucherApplicationDto, createAt, isRedeemed);
             case X_TIMES_REDEMPTION ->
@@ -68,7 +67,7 @@ class VoucherApplicationDtoConverter {
                 createAt,
                 voucherApplicationDto.isDeleted(),
                 isRedeemed,
-                voucherApplicationDto.redemptionCount()
+                voucherApplicationDto.redemptionCount() == null ? 0 : voucherApplicationDto.redemptionCount()
         );
     }
 
@@ -87,8 +86,8 @@ class VoucherApplicationDtoConverter {
                 createAt,
                 voucherApplicationDto.isDeleted(),
                 isRedeemed,
-                voucherApplicationDto.redemptionCount(),
-                voucherApplicationDto.limitRedemption()
+                voucherApplicationDto.redemptionCount() == null ? 0 : voucherApplicationDto.redemptionCount(),
+                voucherApplicationDto.limitRedemption() == null ? 0 : voucherApplicationDto.limitRedemption()
         );
     }
 

@@ -13,7 +13,5 @@ public interface VoucherStorage {
 
     List<Voucher> retrieveAll();
 
-    List<Voucher> retrieveAllByRedemptionType(String redemptionType);
-
     void delete(String id);
 }

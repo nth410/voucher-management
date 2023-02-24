@@ -32,12 +32,10 @@ class VoucherController {
 
     @GetMapping
     List<VoucherResponse> retrieveAll() {
-        final var vouchers = voucherManagerService.retrieveAll()
+        return voucherManagerService.retrieveAll()
                 .stream()
                 .map(VoucherController::toResponse)
                 .toList();
-
-        return vouchers;
     }
 
     @GetMapping("/{id}")

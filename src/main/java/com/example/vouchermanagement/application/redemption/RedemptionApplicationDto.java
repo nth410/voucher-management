@@ -7,6 +7,4 @@ public record RedemptionApplicationDto(
         String voucherId,
         Instant redeemAt
 ) {
-    public RedemptionApplicationDto {
-    }
 }

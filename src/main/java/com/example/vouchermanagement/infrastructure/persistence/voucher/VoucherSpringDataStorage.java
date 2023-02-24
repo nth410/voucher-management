@@ -49,13 +49,6 @@ record VoucherSpringDataStorage(
     }
 
     @Override
-    public List<Voucher> retrieveAllByRedemptionType(final String redemptionType) {
-        final var vouchers = voucherRepository.findAllByRedemptionType(redemptionType);
-
-        return convertIterableToList(vouchers);
-    }
-
-    @Override
     public void delete(final String id) {
         voucherRepository.deleteById(id);
     }
